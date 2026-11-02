@@ -1,10 +1,10 @@
 {
-  "thermal_limit_c": 25.0,
-  "max_weight_kg": 1200.0,
-  "power_capacity_kw": 80.0,
+  "locations": [
+    {"name": "Hyderabad, India", "avg_temp_c": 32.0, "power_reliability": 0.88, "flood_risk": 0.15, "land_cost_millions": 8.0},
+    {"name": "Mumbai, India", "avg_temp_c": 30.0, "power_reliability": 0.85, "flood_risk": 0.45, "land_cost_millions": 20.0}
+  ],
   "racks": [
     {"id": "Rack-A", "power_draw_kw": 60.0, "weight_kg": 1000.0, "ambient_temp_c": 22.0},
-    {"id": "Rack-B", "power_draw_kw": 85.0, "weight_kg": 900.0, "ambient_temp_c": 20.0},
-    {"id": "Rack-C", "power_draw_kw": 50.0, "weight_kg": 1500.0, "ambient_temp_c": 18.0}
+    {"id": "Rack-B", "power_draw_kw": 85.0, "weight_kg": 900.0, "ambient_temp_c": 20.0}
   ]
 }
