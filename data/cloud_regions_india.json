@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "last_reviewed": "2026-11-17",
+  "location_precision": "published cloud region or Local Zone city; not individual data-centre facility coordinates",
+  "locations": [
+    {"provider":"AWS","type":"region","name":"Asia Pacific (Mumbai)","region_code":"ap-south-1","city":"Mumbai","country":"India","availability_zones":3,"source_url":"https://aws.amazon.com/local/india/"},
+    {"provider":"AWS","type":"region","name":"Asia Pacific (Hyderabad)","region_code":"ap-south-2","city":"Hyderabad","country":"India","availability_zones":3,"source_url":"https://aws.amazon.com/local/india/"},
+    {"provider":"AWS","type":"local_zone","name":"Delhi Local Zone","region_code":"ap-south-1-del-1a","city":"Delhi","country":"India","source_url":"https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/"},
+    {"provider":"AWS","type":"local_zone","name":"Kolkata Local Zone","region_code":"ap-south-1-ccu-1a","city":"Kolkata","country":"India","source_url":"https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/"},
+    {"provider":"Google Cloud","type":"region","name":"Mumbai","region_code":"asia-south1","city":"Mumbai","country":"India","source_url":"https://cloud.google.com/about/locations/"},
+    {"provider":"Google Cloud","type":"region","name":"Delhi","region_code":"asia-south2","city":"Delhi","country":"India","source_url":"https://cloud.google.com/about/locations/"},
+    {"provider":"Microsoft Azure","type":"region","name":"Central India","region_code":"centralindia","city":"Pune","country":"India","availability_zones":3,"paired_region":"southindia","source_url":"https://learn.microsoft.com/en-in/azure/reliability/regions-list"},
+    {"provider":"Microsoft Azure","type":"region","name":"India South Central","region_code":"indiasouthcentral","city":"Hyderabad","country":"India","availability_zones":3,"paired_region":"centralindia","source_url":"https://learn.microsoft.com/en-in/azure/reliability/regions-list"},
+    {"provider":"Microsoft Azure","type":"region","name":"South India","region_code":"southindia","city":"Chennai","country":"India","availability_zones":null,"paired_region":"centralindia","source_url":"https://learn.microsoft.com/en-in/azure/reliability/regions-list"},
+    {"provider":"Microsoft Azure","type":"region","name":"West India","region_code":"westindia","city":"Mumbai","country":"India","availability_zones":null,"paired_region":"southindia","source_url":"https://learn.microsoft.com/en-in/azure/reliability/regions-list"}
+  ],
+  "precision_warning": "Vendor-published region and Local Zone city information is not the physical location of individual data-centre buildings. Facility addresses and coordinates are intentionally not fabricated."
+}
