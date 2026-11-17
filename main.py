@@ -7,22 +7,24 @@ def load_config(filepath):
     with open(filepath, 'r') as file:
         return json.load(file)
 
-def get_simulated_live_temp(base_temp):
-    """Simulates a live sensor reading by fluctuating the base temp slightly."""
-    return round(base_temp + random.uniform(-2.0, 2.0), 1)
+def get_simulated_live_temp(base_temp, rng=None):
+    """Return a synthetic temperature sample; this is not live sensor telemetry."""
+    rng = rng or random.Random(42)
+    return round(base_temp + rng.uniform(-2.0, 2.0), 1)
 
 if __name__ == "__main__":
     config = load_config('config.json')
     
-    print(f"=== MACRO EVALUATION: Data Center Locations (Live Sensor Sim) ===")
+    print("=== MACRO EVALUATION: Data Center Locations (SYNTHETIC temperature samples) ===")
     print(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     
     area_planner = DataCenterAreaPlanner()
+    rng = random.Random(42)
     
     for area in config['locations']:
-        # Simulate live data pulling from an IoT sensor
-        live_temp = get_simulated_live_temp(area['avg_temp_c'])
-        area['avg_temp_c'] = live_temp # Update the dictionary with the live reading
+        # This sample is synthetic; never label it as connected IoT telemetry.
+        live_temp = get_simulated_live_temp(area['avg_temp_c'], rng)
+        area['avg_temp_c'] = live_temp
         
         is_safe, score, reasons = area_planner.evaluate_area(area)
         status = "✅ APPROVED" if is_safe else "❌ REJECTED"
