@@ -13,3 +13,22 @@ This section supplements the maintainer-authored README above; it does not repla
 - Record units, source, collection date, assumptions and validation protocol for engineering datasets and simulations.
 - Verify setup, test results and technical claims against the exact current commit before public use.
 - See [MODEL_AUDIT_ROUTER.md](MODEL_AUDIT_ROUTER.md) for independent review and data-integrity rules.
+
+---
+
+## Engineering Audit & Handover — 2026-11-17
+
+**Reviewed commit:** `44b1402d5fd71312b199a27e9302fd5f3a2c27aa` (`main`). Static inspection covered `genetic_optimizer.py` and `planner.py`; tests were not executed.
+
+### Confirmed findings
+- `RackOptimizer._fitness()` hardcodes an 80 kW per-slot threshold, while `DataCenterRackPlanner` exposes a configurable `power_capacity_kw`. The optimizer can therefore disagree with the planner when configured capacity differs from 80 kW.
+- The optimizer uses the global random generator without an injected seed, so results are not reproducible by configuration.
+- The constructor does not validate `max_slots`, `population_size`, rack records, or power values. Empty/invalid configurations can fail during chromosome generation or mutation.
+- Area/rack scoring uses simple fixed thresholds; it is a heuristic planning aid, not an engineering certification or site-suitability assessment.
+
+### Next actions
+1. Pass one validated power-capacity configuration into both optimizer and rack evaluator.
+2. Inject a seeded random generator and validate population size, slot count, and rack schema.
+3. Add tests for capacity boundaries, empty inputs, invalid data, reproducibility, and constraint satisfaction.
+
+**Verification status:** static source inspection only; optimization quality, tests, and real facility data remain unverified.
