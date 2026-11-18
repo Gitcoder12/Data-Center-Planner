@@ -32,3 +32,10 @@ This section supplements the maintainer-authored README above; it does not repla
 3. Add tests for capacity boundaries, empty inputs, invalid data, reproducibility, and constraint satisfaction.
 
 **Verification status:** static source inspection only; optimization quality, tests, and real facility data remain unverified.
+
+---
+
+## Examples Used
+- Checking rack power capacity before placing servers
+- Evaluating thermal and structural constraints in a data hall
+- Comparing alternative rack layouts under resource limits
