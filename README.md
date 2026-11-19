@@ -39,3 +39,27 @@ This section supplements the maintainer-authored README above; it does not repla
 - Checking rack power capacity before placing servers
 - Evaluating thermal and structural constraints in a data hall
 - Comparing alternative rack layouts under resource limits
+
+
+---
+
+## Comparison with Existing Open-Source Projects
+
+Data-Center-Planner is described as a layout-planning prototype that checks rack placement against thermal, structural and resource constraints. The following projects provide adjacent data-centre simulation and optimization references.
+
+| Project | Established focus | Relationship to Data-Center-Planner |
+|---|---|---|
+| [OpenDC](https://github.com/atlarge-research/opendc) | Data-centre simulation for infrastructure and workload research | A broader simulation environment; Data-Center-Planner's documented scope is a more focused rack/layout constraint and optimization tool. |
+| [CloudSim](https://github.com/Cloudslab/cloudsim) | Modelling and simulation of cloud-computing infrastructure and resource allocation | A cloud-resource simulation framework; Data-Center-Planner emphasizes physical rack/site constraints rather than cloud workload scheduling alone. |
+| [Google OR-Tools](https://github.com/google/or-tools) | Constraint programming, routing and combinatorial optimization | A mature optimization toolkit; Data-Center-Planner packages a domain-specific rack-layout problem and evaluation rules. |
+
+### Where Data-Center-Planner is different
+- **Physical-layout constraints:** the concept brings rack capacity, thermal and structural checks into one planning workflow.
+- **Optimization-oriented layout:** the current design uses an optimizer to explore alternative rack placements under configured limits.
+- **Arbitrary-environment intent:** the stated goal is to support configurable site constraints rather than one fixed data-hall template.
+
+### Where established projects are stronger
+OpenDC and CloudSim have broader simulation models and research ecosystems; OR-Tools offers mature constraint-solving methods. The current implementation audit found a hard-coded 80 kW threshold that can disagree with configurable planner capacity, plus missing input validation and reproducibility controls.
+
+### Engineering evidence and limitations
+Use one validated configuration for all constraints, seed stochastic optimization, and test boundary cases and constraint satisfaction. Record units, sensor/source data and assumptions. Treat outputs as planning aids, not structural, electrical, thermal or regulatory certification. This is a scope comparison, not an optimization-quality benchmark.
