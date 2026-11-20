@@ -2,6 +2,18 @@
 A flexible data center layout tool that evaluates deployment safety across any arbitrary environment, checking local thermal, structural, and resources capacity thresholds before approving cluster architecture. 
 
 
+## Run the planner locally
+
+This repository currently provides a Python command-line demonstration, not a browser website.
+
+```bash
+git clone https://github.com/Gitcoder12/Data-Center-Planner.git
+cd Data-Center-Planner
+python main.py
+```
+
+Run the command from the repository root because `main.py` reads `config.json` using a relative path. The temperature readings printed by the demo are synthetic samples, not live sensor telemetry. The scores are heuristic planning outputs, not engineering or site-safety certification.
+
 ---
 
 ## AI-maintained project notes (secondary — 2026-11-13)
