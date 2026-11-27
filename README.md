@@ -39,3 +39,9 @@ This section supplements the maintainer-authored README above; it does not repla
 - Checking rack power capacity before placing servers
 - Evaluating thermal and structural constraints in a data hall
 - Comparing alternative rack layouts under resource limits
+
+---
+
+## Repository navigation
+
+[Alphabetical file index](FILE_INDEX.md)
